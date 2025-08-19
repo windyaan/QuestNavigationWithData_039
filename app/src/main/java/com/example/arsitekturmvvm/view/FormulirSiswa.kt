@@ -77,8 +77,8 @@ fun FormulirSiswa(
             HorizontalDivider(
                 thickness = dimensionResource(R.dimen.thickness_divider),
                 modifier = Modifier
-                .padding(top = 20.dp)
-                .width(250.dp)
+                    .padding(top = 12.dp)
+                    .width(250.dp)
             )
 
             Row {
@@ -107,18 +107,22 @@ fun FormulirSiswa(
                 color = Color.Red
             )
             OutlinedTextField(
-                value = "",
+                value = txtAlamat,
                 singleLine = true,
+                shape = MaterialTheme.shapes.medium,
                 modifier = Modifier
                     .width(250.dp),
-                label = { Text(text = "Alamat")},
-                onValueChange = {},
+                label = { Text(text = "Alamat Lengkap")},
+                onValueChange = {
+                    txtAlamat = it
+                },
             )
-            Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             Button(
-                modifier = Modifier.fillMaxWidth(1f)
-                    .padding(all = 25.dp),
-                onClick = OnSubmitBtnClick
+                modifier = Modifier
+                    .fillMaxWidth(1f),
+                enabled = txtAlamat.isNotEmpty(),
+                onClick = { onSubmitButtonClicked(listData) }
             ) {
                 Text(text = stringResource(id = R.string.submit))
             }
