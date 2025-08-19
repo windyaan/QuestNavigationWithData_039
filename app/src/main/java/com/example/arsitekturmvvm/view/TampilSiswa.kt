@@ -24,11 +24,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.arsitekturmvvm.R
+import com.example.arsitekturmvvm.model.DataSiswa
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TampilSiswa(
-    onBackBtnClick:()->Unit
+    //edit 1: parameter statusUiSiswa
+    statusUiSiswa: DataSiswa,
+    onBackButtonClick:()->Unit
 ){
     val items = listOf(
         Pair(stringResource (id = R.string.nama_lengkap), "Contoh Nama"),
