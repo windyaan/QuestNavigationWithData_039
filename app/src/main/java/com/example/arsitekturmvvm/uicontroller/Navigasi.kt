@@ -40,9 +40,10 @@ fun SiswaApp(
                 val konteks = LocalContext.current
                 FormulirSiswa (
                     //edit 4: parameter pilihanJK dan onSubmitButtonClicked
-                    pilihanJK = JenisK.map{ id -> konteks.resources.getString(id) },
+                    //pilihanJK = JenisK.map{ id -> konteks.resources.getString(id) },
                     onSubmitButtonClicked = {
                         viewModel.setSiswa(it)
+                        navController.navigate(Navigasi.Detail.name)
                     }
                 )
             }
