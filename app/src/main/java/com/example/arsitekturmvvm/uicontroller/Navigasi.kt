@@ -47,8 +47,10 @@ fun SiswaApp(
                 )
             }
             composable(route = Navigasi.Detail.name){
-                TampilData(
-                    onBackBtnClick = {cancelAndBackToFormulir(navController)}
+                TampilSiswa(
+                    //edit 5: parameter stateUiSiswa
+                    statusUiSiswa = uiState.value,
+                    onBackButtonClicked = {cancelAndBackToFormulir(navController)}
                 )
             }
         }
