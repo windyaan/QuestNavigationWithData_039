@@ -39,7 +39,7 @@ import com.example.arsitekturmvvm.R
 @Composable
 fun FormulirSiswa(
     //edit 1: parameter pilihanJK dan onSubmitButtonClicked
-    pilihanJK:List<String> ,
+    pilihanJK: List<String> ,
     onSubmitButtonClicked : (MutableList<String>) -> Unit,
     modifier: Modifier = Modifier
 ){
