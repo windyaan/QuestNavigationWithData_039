@@ -35,8 +35,8 @@ fun TampilSiswa(
 ){
     //edit 2: item Pair
     val items = listOf(
-        Pair(stringResource (id = R.string.nama_lengkap), statusUiSiswa.nama),
-        Pair(stringResource(id = R.string.jenis_kelamin), statusUiSiswa.gender),
+        Pair(stringResource (id = R.string.nama), statusUiSiswa.nama),
+        Pair(stringResource(id = R.string.gender), statusUiSiswa.gender),
         Pair(stringResource(id = R.string.alamat), statusUiSiswa.alamat)
     )
     Scaffold (
@@ -44,7 +44,7 @@ fun TampilSiswa(
         {
             TopAppBar(
                 title = { Text(text = stringResource(id = R.string.tampil), color = Color.White)},
-                colors = TopAppBarDefaults.mediumTopAppBarColors(colorResource(id = R.color.teal_700))
+                colors = TopAppBarDefaults.mediumTopAppBarColors(colorResource(id = R.color.purple_500))
             )
         }){ isiRuang ->
         Column (modifier = Modifier.padding(isiRuang),
@@ -55,11 +55,11 @@ fun TampilSiswa(
                 items.forEach { item ->
                     Column {
                         Text(text = item.first.uppercase(), fontSize = 16.sp)
-                        Text(text = item.second, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Cursive, fontSize = 22.sp)
+                        Text(text = item.second, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Cursive, fontSize = 16.sp)
                     }
-                    HorizontalDivider(thickness = 1.dp, color = Color.Cyan)
+                    HorizontalDivider(thickness = dimensionResource(R.dimen.thickness_divider))
                 }
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
                 Button(
                     modifier = Modifier.fillMaxWidth(),
                     onClick = onBackButtonClicked){
