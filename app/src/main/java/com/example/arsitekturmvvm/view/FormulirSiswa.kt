@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Button
-import androidx.compose.material3.DividerDefaults.Thickness
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
@@ -39,7 +38,7 @@ import com.example.arsitekturmvvm.R
 @Composable
 fun FormulirSiswa(
     //edit 1: parameter pilihanJK dan onSubmitButtonClicked
-    pilihanJK: List<String> ,
+    pilihanJK: List<String> = listOf("Laki-laki", "Perempuan") ,
     onSubmitButtonClicked : (MutableList<String>) -> Unit,
     modifier: Modifier = Modifier
 ){
@@ -47,7 +46,7 @@ fun FormulirSiswa(
     var txtNama by rememberSaveable { mutableStateOf("") }
     var txtAlamat by remember { mutableStateOf("") }
     var txtGender by remember { mutableStateOf("") }
-    var listData: MutableList<String> = mutableListOf(txtNama,txtGender,txtAlamat)
+    val listData: MutableList<String> = mutableListOf(txtNama,txtGender,txtAlamat)
 
     Scaffold(modifier = Modifier,
         { TopAppBar(
@@ -66,8 +65,8 @@ fun FormulirSiswa(
                 singleLine = true,
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier
-                    .padding(top = 20.dp)
-                    .width(250.dp),
+                    .width(250.dp)
+                    .padding(top = 20.dp),
                 label = { Text(text = "Nama Lengkap")},
                 onValueChange = {
                     txtNama = it
@@ -100,11 +99,11 @@ fun FormulirSiswa(
                     }
                 }
             }
-            HorizontalDivider(modifier = Modifier
-                .padding(top = 20.dp)
-                .width(250.dp),
-                thickness = 1.dp,
-                color = Color.Red
+            HorizontalDivider(
+                thickness = dimensionResource(R.dimen.thickness_divider),
+                modifier = Modifier
+                .padding(5.dp)
+                .width(250.dp)
             )
             OutlinedTextField(
                 value = txtAlamat,
