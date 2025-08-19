@@ -69,7 +69,9 @@ fun FormulirSiswa(
                     .padding(top = 20.dp)
                     .width(250.dp),
                 label = { Text(text = "Nama Lengkap")},
-                onValueChange = {},
+                onValueChange = {
+                    txtNama = it
+                },
             )
 
             HorizontalDivider(
