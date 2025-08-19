@@ -31,12 +31,13 @@ import com.example.arsitekturmvvm.model.DataSiswa
 fun TampilSiswa(
     //edit 1: parameter statusUiSiswa
     statusUiSiswa: DataSiswa,
-    onBackButtonClick:()->Unit
+    onBackButtonClicked:()->Unit
 ){
+    //edit 2: item Pair
     val items = listOf(
-        Pair(stringResource (id = R.string.nama_lengkap), "Contoh Nama"),
-        Pair(stringResource(id = R.string.jenis_kelamin), "Lainnya"),
-        Pair(stringResource(id = R.string.alamat), "Yogyakarta")
+        Pair(stringResource (id = R.string.nama_lengkap), statusUiSiswa.nama),
+        Pair(stringResource(id = R.string.jenis_kelamin), statusUiSiswa.gender),
+        Pair(stringResource(id = R.string.alamat), statusUiSiswa.alamat)
     )
     Scaffold (
         modifier = Modifier,
@@ -47,7 +48,8 @@ fun TampilSiswa(
             )
         }){ isiRuang ->
         Column (modifier = Modifier.padding(isiRuang),
-            verticalArrangement = Arrangement.SpaceBetween){
+            verticalArrangement = Arrangement.SpaceBetween
+        ){
             Column(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium)),
                 verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small))) {
                 items.forEach { item ->
@@ -60,7 +62,7 @@ fun TampilSiswa(
                 Spacer(modifier = Modifier.height(10.dp))
                 Button(
                     modifier = Modifier.fillMaxWidth(),
-                    onClick = onBackBtnClick){
+                    onClick = onBackButtonClicked){
                     Text(text = stringResource(id = R.string.back))
                 }
             }
